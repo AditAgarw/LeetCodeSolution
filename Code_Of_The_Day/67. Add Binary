@@ -1,0 +1,44 @@
+class Solution {
+    public String addBinary(String a, String b) {
+        
+        int n = a.length()-1;
+        int m = b.length()-1;
+
+        int sum = 0;
+        int carry = 0;
+        StringBuilder result = new StringBuilder();
+
+        while(n>=0 || m>=0){
+            sum = carry;
+
+            if(n>=0){
+                sum = sum + (a.charAt(n) - '0');
+                n--;
+            }
+
+            if(m>=0){
+                sum = sum + (b.charAt(m) - '0');
+                m--;
+            }
+
+          if(sum%2 == 0){
+            result.append('0');
+          } else {
+            result.append('1');
+          }
+           
+           if(sum>1){
+            carry = 1;
+           } else{
+            carry = 0;
+           }
+        }
+
+        
+    if(carry == 1){
+        result.append('1');
+    }
+
+    return result.reverse().toString();
+    }   
+}
