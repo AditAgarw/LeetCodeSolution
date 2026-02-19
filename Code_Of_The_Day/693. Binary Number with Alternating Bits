@@ -1,0 +1,23 @@
+class Solution {
+    public boolean hasAlternatingBits(int n) {
+        
+        int currentBit = 0;
+
+        while(n>0){
+
+            currentBit = n%2;
+            n= n/2;
+            if(currentBit == n%2){
+                return false;
+            }
+        }
+
+        return true;
+
+    }
+}
+
+
+Second Approach - Calculate right shift of the original input and then do XOR from between the right shift of the original input and input, it should be euqal to 1
+
+Third Approach - to extract bit value of an input - O(logn)
