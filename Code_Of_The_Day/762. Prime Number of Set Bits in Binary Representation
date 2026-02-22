@@ -1,0 +1,19 @@
+class Solution {
+    public int countPrimeSetBits(int left, int right) {
+         
+    //keeping only those numbers which are prime, by calculating the maximum    number of set bits this range can have.    
+        Set<Integer> primes =new HashSet<>(Arrays.asList(2,3,5,7,11,13,17,19)); 
+
+        int result = 0;
+
+      for(int nums = left; nums <= right; nums++){
+        int setBits = Integer.bitCount(nums);
+
+        if(primes.contains(setBits)){
+              result++;
+        }
+      }
+
+      return result;
+    }
+}
